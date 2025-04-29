@@ -42,7 +42,7 @@ public class PessoaController {
     // Listar todas as pessoas
     @GetMapping
     public List<Pessoa> listarTodas() {
-        return pessoaService.listarTodos();
+        return pessoaService.listarTodas();
     }
 
     // Buscar pessoa por email

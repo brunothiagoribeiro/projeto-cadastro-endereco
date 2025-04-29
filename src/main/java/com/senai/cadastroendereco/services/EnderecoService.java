@@ -12,24 +12,26 @@ import com.senai.cadastroendereco.repositories.EnderecoRepository;
 @Service
 public class EnderecoService {
 
-	@Autowired
-	private EnderecoRepository enderecoRepository;
+    @Autowired
+    private EnderecoRepository enderecoRepository;
 
-	public Endereco salvar(Endereco endereco) {
-		return enderecoRepository.save(endereco);
-	}
+    // Salvar um novo endereço
+    public Endereco salvar(Endereco endereco) {
+        return enderecoRepository.save(endereco);
+    }
 
-	public List<Endereco> listarTodos() {
-		return enderecoRepository.findAll();
-	}
+    // Buscar todos os endereços
+    public List<Endereco> listarTodos() {
+        return enderecoRepository.findAll();
+    }
 
-	public Optional<Endereco> buscarPorId(Long id){
-		return enderecoRepository.findById(id);
-	}
+    // Buscar um endereço por ID
+    public Optional<Endereco> buscarPorId(Long id) {
+        return enderecoRepository.findById(id);
+    }
 
-	public void deletarPorId(Long id) {
-		enderecoRepository.deleteById(id);
-
-	}
-
+    // Deletar um endereço por ID
+    public void deletarPorId(Long id) {
+        enderecoRepository.deleteById(id);
+    }
 }

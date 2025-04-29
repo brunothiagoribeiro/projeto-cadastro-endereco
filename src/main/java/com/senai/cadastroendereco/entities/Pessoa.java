@@ -11,86 +11,85 @@ import jakarta.persistence.OneToMany;
 
 @Entity
 public class Pessoa {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idPessoa;
-	@Column(name = "nome")
-	private String nome;
-	@Column(name = "email")
-	private String email;
-	@Column(name = "telefone")
-	private String telefone;
-	@Column(name = "senha")
-	private String senha;
-	
-	@OneToMany(mappedBy = "pessoa")
-	private List<Endereco> enderecos;
 
-	//Construtores
-	public Pessoa() {
-		
-	}
-	
-	public Pessoa(Long idPessoa, String nome, String email, String telefone, String senha, List<Endereco> enderecos) {
-		
-		this.idPessoa = idPessoa;
-		this.nome = nome;
-		this.email = email;
-		this.telefone = telefone;
-		this.senha = senha;
-		this.enderecos = enderecos;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	//Getters e Setters 
-	public Long getIdPessoa() {
-		return idPessoa;
-	}
+    @Column(name = "nome")
+    private String nome;
 
-	public void setIdPessoa(Long idPessoa) {
-		this.idPessoa = idPessoa;
-	}
+    @Column(name = "email")
+    private String email;
 
-	public String getNome() {
-		return nome;
-	}
+    @Column(name = "telefone")
+    private String telefone;
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    @Column(name = "senha")
+    private String senha;
 
-	public String getEmail() {
-		return email;
-	}
+    // Relacionamento com a entidade Endereço
+    @OneToMany(mappedBy = "pessoa") // A propriedade "pessoa" na classe Endereco mapeia o relacionamento
+    private List<Endereco> enderecos;
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public Pessoa() {
+    }
 
-	public String getTelefone() {
-		return telefone;
-	}
+    public Pessoa(Long id, String nome, String email, String telefone, String senha, List<Endereco> enderecos) {
+        this.id = id;
+        this.nome = nome;
+        this.email = email;
+        this.telefone = telefone;
+        this.senha = senha;
+        this.enderecos = enderecos;
+    }
 
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
+    // Getters e Setters
+    public Long getId() {
+        return id;
+    }
 
-	public String getSenha() {
-		return senha;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
+    public String getNome() {
+        return nome;
+    }
 
-	public List<Endereco> getEnderecos() {
-		return enderecos;
-	}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-	public void setEnderecos(List<Endereco> enderecos) {
-		this.enderecos = enderecos;
-	}
-	
-	
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public List<Endereco> getEnderecos() {
+        return enderecos;
+    }
+
+    public void setEnderecos(List<Endereco> enderecos) {
+        this.enderecos = enderecos;
+    }
 }
-	
